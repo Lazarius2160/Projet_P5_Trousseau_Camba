@@ -46,7 +46,7 @@ catkin build
 ```
 **ET POUR LANCER UN PREMIER QUELQUE CHOSE ?**
 
-Suivre le tutoriel d'installation de [PX4](https://gvipers.imt-lille-douai.fr/thibaut.felten/projet-ros/blob/master/doc/03-tutorial-px4.md#tutoriels-suivis)
+Suivre le tutoriel d'installation de [PX4](doc/03-tutorial-px4.md#tutoriels-suivis)
 
 ## Organisation du repertoire
 
