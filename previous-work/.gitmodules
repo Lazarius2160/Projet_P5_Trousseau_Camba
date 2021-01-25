@@ -1,0 +1,4 @@
+[submodule "mavros"]
+	path = mavros
+	url = https://github.com/mavlink/mavros
+
