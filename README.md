@@ -7,8 +7,8 @@
 Configuration required : 
 -	Ubuntu 16.04 (x86/ARM)
 -	ROS version : Kinetic 
--	Gazebo 7 or more (to check with gazebo --version)
--	cmake version of at least 2.8.3 (to check with cmake --version)
+-	Gazebo 7 or more (to check use `gazebo --version`)
+-	cmake version of at least 2.8.3 (to check use `cmake --version`)
 -	a developping tool to code with C, C++
 - Need Rviz
 
@@ -17,11 +17,13 @@ Configuration required :
 
    The DJI M100 is a quadrotor drone which needs a kinetic ROS version to work with hector_quadrotor. However the simulation can be done on Melodic (just need to add a pluging to hector).
    Able to work in collision free mode, can be piloted or given a nav goal on rviz.
-   Customisable : some worlds already integrated (collision sphere, search and rescue...)
+   Customisable : some worlds already integrated (collision sphere, search and rescue...).
+   SWitching to ROS Melodic is possible if a plugin to convert hector_quadrotor is used.
 
 2. How it works :
 
    Simulate the drone in Gazebo and visualize informations through Rviz.
+   The DJI_m100_controller class represents the DJI M100 hardware in Gazebo for the gazebo_ros_control plugin during SITL.
    The drone would then be piloted through a logitech_gamepad.launch or xbox_controller.launch for the Xbox gamepads controllers. To controll it with the keyboard     need to launch :
    `python hector_keyboard_teleop/src/hector_keyboard_teleop.py` 
    And move it with : w - Forward, a - Left, s - Reverse, d - Right, z - Climb up, c - Climb down, . - Stop
