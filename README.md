@@ -34,8 +34,8 @@ SITL | Yes | ?? | No
 
 ### Packages and tools to interact with the drone :
 
-Package | OSDK | dji_m100 suite | Hector quadrotor | SJTU *à essayer* | ROS Quadrotor Simulator
---------|-----|-----------|-----------|-----------|-----
+Package | OSDK | dji_m100 suite | Hector quadrotor | SJTU *à essayer* | ROS Quadrotor Simulator | PX4 | Ardupilot
+--------|-----|-----------|-----------|-----------|-----|----|-----
 ROS version | Kinetic | Kinetic and Melodic | Kinetic and Melodic | Melodic | Indigo (maybe KInetic)
 Gazebo version | 7 or more | 7 or 8 | 7 or more | 7 | 7 | 
 Cmake version | 2.8.3 or newer | 2.8.3 or newer | 2.8.3 or newer | 3.2.2 | 
