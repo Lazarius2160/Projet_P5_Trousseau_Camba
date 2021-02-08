@@ -23,9 +23,9 @@ Configuration required :
 1. General informations
 
    Onboard Software Development Kit for those who want to develop only software and rapidly prototype, it simulates the sensors on the robot which flies on an empty world.\
-   No need to have the company onboard computer, instead one can use a thrid party computer as explained [here](https://developer.dji.com/onboard-sdk/documentation/purchaseguide/hardware.html#onboard-computer). \
-   Simulator integrated to the assistant or possible to contect it with Gazebo for more functionnalities. \
-   Use a RQT GUI by itself, may be used with Rviz (see below on the next section). \
+   No need to have the company onboard computer, instead one can use a thrid party computer as explained [here](https://developer.dji.com/onboard-sdk/documentation/purchaseguide/hardware.html#onboard-computer).\
+   Simulator integrated to the assistant or possible to contect it with Gazebo for more functionnalities.\
+   Use a RQT GUI by itself, may be used with Rviz (see below on the next section).\
    However, having a ready-made SDK also restricts the developer from many aspects, mostly by the assumptions made by product owner while configuring it.
    
 2. Sensors emulated
@@ -35,7 +35,7 @@ Configuration required :
 3. How it works 
 
    Simulate the drone in the DJI assistant 2, visualize the informations and camera with an RQT GUI.\
-   The drone would then be piloted through the UAV provided with the drone. \
+   The drone would then be piloted through the UAV provided with the drone.\
 
 4. Installation tutorial
 
@@ -92,6 +92,6 @@ Same as before plus :
       
 5. Testing 
 
-   To test if the hector quadrotor works fine, try `roslaunch hector_quadrotor_demo outdoor_flight_gazebo.launch`, somertimes, it needs to have the motor enable manually `rosservice call /enable_motors "enable: true` 
+   To test if the hector quadrotor works fine, try `roslaunch hector_quadrotor_demo outdoor_flight_gazebo.launch`, somertimes, it needs to have the motor enable manually `rosservice call /enable_motors "enable: true` .
    
    
