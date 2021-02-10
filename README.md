@@ -20,8 +20,8 @@ The previous project worked with :
 ### Comparison of exiting simulator :
 
 
-Simulators | Gazebo | ?? | DJI Assistant | jMAVsim | 
-----------|--------|------------|-----------------|------|---
+Simulators | Gazebo | ?? | DJI Assistant | jMAVsim 
+----------|--------|------------|-----------------|-----
 ROS version | All | ?? | Kinetic (and Melodic with plugins)
 *Works on Linux* | Yes | | No but OSDK can 
 Drones available | Multirotors | ?? | All DJI
