@@ -20,14 +20,15 @@ The previous project worked with :
 ### Comparison of exiting simulator :
 
 
-Simulators | Gazebo | ?? | DJI Assistant
-----------|--------|------------|-----------------
+Simulators | Gazebo | ?? | DJI Assistant | jMAVsim | 
+----------|--------|------------|-----------------|------|---
 ROS version | All | ?? | Kinetic (and Melodic with plugins)
 *Works on Linux* | Yes | | No but OSDK can 
 Drones available | Multirotors | ?? | All DJI
 Sensors | Many (create and modify) | ?? | Many 
 Obstacles | Yes | ?? | None
-SITL | Yes | ?? | No
+SITL | Yes | ?? | No | Yes
+Compatibility | Many | | Gazebo | PX4
 
 
 
@@ -38,15 +39,16 @@ Package | OSDK | dji_m100 suite | Hector quadrotor | SJTU *à essayer* | ROS Qua
 --------|-----|-----------|-----------|-----------|-----|----|-----
 ROS version | Kinetic | Kinetic and Melodic | Kinetic and Melodic | Melodic | Indigo (maybe KInetic)
 Gazebo version | 7 or more | 7 or 8 | 7 or more | 7 | 7 | 
-Cmake version | 2.8.3 or newer | 2.8.3 or newer | 2.8.3 or newer | 3.2.2 | 
+Cmake version | 2.8.3 or newer | 2.8.3 or newer | 2.8.3 or newer | 3.2.2 | 2.8.3 | 
 Drones | All DJI | M100 | [Generic quadrotor](http://wiki.ros.org/hector_quadrotor_description) | Parrot AR Drone | ??
-Sensors | Camera, GPS, mission, IMU | Camera, GPS, mission | Forward camera, laser, sonar, [many more...](https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor) | Forward/backward camera, laser, sonar, IMU
-Topics | Odom, attitude, GPS | uav1/... same as before | Odom, attitude | [Topics related to sensors](https://github.com/edowson/sjtu_drone#read-sensor-data-from-ros-topics) or use RQT GUI
-Navigation | Joysticks | Joysticks | Joysticks, can add keyboard | Joystick, keyboard or waypoints | Xbox joysticks, autonomous
-Worlds | Empty | Some  (collision etc) | Indoor and Outdoor | Some |
-GUI | | Rviz or RQT | Rviz | | RViz | GZcliebnt from Gazebo
+Sensors | Camera, GPS, mission, IMU | Camera, GPS, mission | Forward camera, laser, sonar, [many more...](https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor) | Forward/backward camera, laser, sonar, IMU | Camera, sonar
+Topics | Odom, attitude, GPS | uav1/... same as before | Odom, attitude, cmd_vel | [Topics related to sensors](https://github.com/edowson/sjtu_drone#read-sensor-data-from-ros-topics) or use RQT GUI 
+Navigation | Joysticks | Joysticks | Joysticks, can add keyboard | Joystick, keyboard or waypoints | Xbox joysticks, waypoints, autonomous
+Worlds | Empty | Some  (collision etc) | Indoor and Outdoor | Some | Many, indoor and outdoor | 
+GUI | From the assistant | Rviz or RQT | Rviz | RViz or GZcliebnt from Gazebo | Rviz
+Compatibility | ? | With hector | ? | ? | With PX4, MoveIt!
 More | Need the drone | Need the drone. Collision free | [Kinect](https://github.com/kkelchte/hector_quadrotor) | Simulate wind flow, race | Path planning, obstacle avoidance
-Links | [Package](https://github.com/dji-sdk/Onboard-SDK/) | See branch ROS_Kinetic_Gazebo | Same | See previous work or [here](https://github.com/tahsinkose/sjtu-drone) | See [here](https://github.com/wilselby/ROS_quadrotor_simulator)
+Links | [Package](https://github.com/dji-sdk/Onboard-SDK/) | See branch ROS_Kinetic_Gazebo | [Package](http://wiki.ros.org/hector_quadrotor), [Tutorial](https://hub.packtpub.com/using-ros-uavs/) | See previous work or [here](https://github.com/tahsinkose/sjtu-drone) | See [here](https://github.com/wilselby/ROS_quadrotor_simulator)
 
 
 
