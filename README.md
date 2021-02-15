@@ -8,7 +8,7 @@ For this project, the *Software In the Loop* method must be priviledge as it "ch
 The focus will be on simulators ROS friendly. Mostly using Melodic, as well as Kinetic if needed.
 
 
-The previous project worked with : 
+The previous project found solutions with : 
 - RotorS, in ROS Kinetic with various Drones on Gazebo,
 - BebopS, a fork of RotorS which works with Parrot 2 only on Gazebo,
 - TUM simulator, only with A.R. Drone 2, use Gazebo as the simulator on ROS Melodic,
@@ -18,7 +18,6 @@ The previous project worked with :
 
 
 ### Comparison of exiting simulator :
-
 
 Simulators | Gazebo | DJI Assistant | jMAVsim 
 ----------|-----------------|-----------------|-----
@@ -30,17 +29,18 @@ Obstacles | Yes | None
 SITL | Yes | No | Yes
 Compatibility | Many | Gazebo | PX4
 
-
+\
+Added to the simulator, ROS packages are here to complete the simulation according to our needs.
 
 
 ### Packages useful :
 
-Package | OSDK | dji_m100 suite | Hector quadrotor | SJTU *à essayer* | ROS Quadrotor Simulator | *ArduCopter* 
+Package | OSDK | dji_m100 suite | Hector quadrotor | *SJTU à essayer* | *ROS Quadrotor Simulator* | *BebopS* 
 --------|-----|-----------|-----------|-----------|-----|---
-Type | Developement toolkit | Package | Metapackage | Package | Package | Package
+Type | Developement toolkit | Package | Metapackage | Package | Package | Package, forked from RotorS
 Use case | | | | | | | 
-ROS version | Kinetic | Kinetic and Melodic | Kinetic and Melodic | Melodic | Indigo (maybe KInetic)
-Gazebo version | 7 or more | 7 or 8 | 7 or more | 7 | 7 | 
+ROS version | Kinetic | Kinetic and Melodic | Kinetic and Melodic | Melodic | Indigo (maybe Kinetic)
+Simulator | Gazebo 7 or more | Gazebo 7 or 8 |Gazebo 7 or more | Gazebo 7 | Gazebo 7 | 
 Cmake version | 2.8.3 or newer | 2.8.3 or newer | 2.8.3 or newer | 3.2.2 | 2.8.3 | 
 Drones | All DJI | M100 | [Generic quadrotor](http://wiki.ros.org/hector_quadrotor_description) | Parrot AR Drone | AsTec and others multirotors
 Sensors | Camera, GPS, mission, IMU | Camera, GPS, mission | Forward camera, laser, sonar, [many more...](https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor) | Forward/backward camera, laser, sonar, IMU | Camera, sonar
@@ -53,11 +53,24 @@ Compatibility | Install the DJI assistant onto it | Gazebo pluging and a modifia
 More | Need the drone | Need the drone. Collision free | [Kinect](https://github.com/kkelchte/hector_quadrotor), multiple plugins, demos | Simulate wind flow, race. May need [Gazebo 9 and Ubuntu 18.04](https://github.com/tahsinkose/sjtu-drone). Fork of [tum_simulator](http://wiki.ros.org/tum_simulator) | Path planning, obstacle avoidance, ~2 and 3D mapping
 Links | [Package](https://github.com/dji-sdk/Onboard-SDK/) | See branch ROS_Kinetic_Gazebo | [Package](http://wiki.ros.org/hector_quadrotor), [Tutorial](https://hub.packtpub.com/using-ros-uavs/), [more explanations and posibilities](https://wiki.ros.org/tu-darmstadt-ros-pkg/) | See previous work or [here](https://github.com/tahsinkose/sjtu-drone) | See [here](https://github.com/wilselby/ROS_quadrotor_simulator)
 
+
 ### Flight controller : 
 
 Flight controller | PX4 | Ardupilot 
 ---|----|-----
 ROS version | Melodic | Melodic
-Compatibility | Plugin Gazebo 9 | Plugin Gazebo, use [SITL](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html)
-More | | DO not need ROS and Gazebo to work properly but compatible, Linux Ubuntu 18.04
+Simulator | Gazebo, jMAVsim | SITL, Gazebo
+Compatibility | Plugin Gazebo 9 | Plugin Gazebo, use [SITL](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html) and [MavProxy](https://ardupilot.org/mavproxy/index.html#home)
+Drones | | Use package ArduCopter, [ready to use drones here](https://ardupilot.org/copter/docs/common-rtf.html#common-rtf)
+Navigation | | Mission planner, click on the simulation (with SITL)
+More | | DO not need ROS and Gazebo to work properly but compatible, use Linux Ubuntu 18.04
+Links | | [Wiki](https://ardupilot.org/copter/index.html)
+
+### To summarize : 
+The project group found out that *Gazebo* was the best simulator they could use regarding its ROS compatibility, sensors emulated and modifiability/compatibility.\
+The former group project tried out :
+- BebopsS, worked well but needed to change the waypoints directly onto the waypoints.txt
+- SJTU_drone, no issues noted
+- ArduPilot and SITL, the most advanced tutorial with the most capacities, but did not try with Gazebo.\
+**A compléter après la réunion de Mardi**
 
