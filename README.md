@@ -29,7 +29,7 @@ Sensors | Many (create and modify) | Many | No incorporation of sensors | Depend
 Obstacles | Yes | None | No
 SITL | Yes | No | Yes | Yes
 Compatibility | Many | Gazebo | Use MAVLink protocol, Java3D library, works with PX4 | With all the Paparazzi suite and others tools
-multi-vehicle simulation |yes but can only simulate a single type of vehicle at a time  | | |recommended if you need to support a lot of quadcopters, and the simulation only needs to be approximate| [Possible but need some troubleshooting](https://wiki.paparazziuav.org/wiki/NPS#Simulating_Multiple_Aircraft)
+multi-vehicle simulation |yes but can only simulate a single type of vehicle at a time  | |recommended if you need to support a lot of quadcopters, and the simulation only needs to be approximate| [Possible but need some troubleshooting](https://wiki.paparazziuav.org/wiki/NPS#Simulating_Multiple_Aircraft)
 Links | | | [With SITL](https://bresch.gitbooks.io/devguide/content/en/simulation/jmavsim.html), and [more](https://docs.px4.io/master/en/simulation/jmavsim.html) | [Wiki](https://wiki.paparazziuav.org/wiki/NPS) | 
 
 \
