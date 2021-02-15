@@ -65,6 +65,7 @@ ROS version | Melodic | Melodic | Under developpement
 Simulator | Gazebo, jMAVsim | SITL, Gazebo | [Gazebo](https://wiki.paparazziuav.org/wiki/Gazebo) or its own simulator [New Paparazzi Simulator](https://wiki.paparazziuav.org/wiki/NPS) using JSBSim (FDM)
 Compatibility | Plugin Gazebo 9 | Plugin Gazebo, use [SITL](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html) and [MavProxy](https://ardupilot.org/mavproxy/index.html#home) | Gazebo, JBSim, FlightGear
 Drones | Multirotors | Wide range, can use package ArduCopter, [multirotors ready to use here](https://ardupilot.org/copter/docs/common-rtf.html#common-rtf) | Multirotors (choice limited by hardware) | Rotorcrafts
+multi-vehicle simulation |[Possible with Gazebo, FlightGear and JMAVSim](https://docs.px4.io/master/en/simulation/multi-vehicle-simulation.html)  | [Tools in development](https://publications.waset.org/10010266/development-of-tools-for-multi-vehicles-simulation-with-robot-operating-system-and-ardupilot) |[Possible](https://wiki.paparazziuav.org/wiki/Simulation#Multiple_UAV_Simulation)
 Navigation | GPS (waypoints and position hold), stereo vision | GPS, mission planner, follow me and click on the simulation (with SITL) | GPS (waypoints and position hold), stereo vision
 Communication | MAV Link | MAV Link | MAV Link 
 More | Flight stack and autopilot | DO not need ROS and Gazebo to work properly but compatible, use Linux Ubuntu 18.04 | Automated take off and landing 
