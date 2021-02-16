@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-    <include file="$(find px4)/launch/mavros_posix_sitl.launch" />
-
-    <node name="test" pkg="offboard_control" type="node_offboard.py" />
-</launch>
