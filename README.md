@@ -34,9 +34,13 @@ It also installs [gitk](https://git-scm.com/docs/gitk/) a repository browser, an
 3. It also let us updates [MavProxy](https://ardupilot.org/mavproxy/index.html#home), which a "UAV ground station software package for MAVLink based systems". First I installed it using [this website](https://ardupilot.org/mavproxy/docs/getting_started/download_and_installation.html#linux) and to get everything up to date.
 > MAVProxy allows to give commands to the UAV in the simulation. For example, to arm the engines, disarm them, give the UAV a mission and more generally manage the UAV and the simulation.
 
-3. Trying to use Gazebo as an external simulator. I used this [third tutorial](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html). 
+3. To use Gazebo as an external simulator. I used this [third tutorial](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html) which went smoothly and I was able to take off.
 
 4. ROS MAVRos est un nœud ROS qui permet d’interagir avec ces commandes à travers ROS et donc de créer une interface entre les deux logiciels.
 
 ### Testing : 
 1. The tutorial **[Setting up SITL on Linux](https://ardupilot.org/dev/docs/setting-up-sitl-on-linux.html#setting-up-sitl-on-linux)** was made to configure and launch SITL. **QU'EST CE QUE J'AI PU FAIRE**
+2. Then I tried this tutorial to test my SITL simulation [Copter SITL/MAVProxy tutorial](https://ardupilot.org/dev/docs/copter-sitl-mavproxy-tutorial.html) to be sure everything worked fine before trying to add Gazebo and ROS. I used the guided mode and *armed the motors* which is very important otherwise the drone won't take off, I also had to write my commands on my terminal not in the ArduPilot console.\ 
+To guide the drone there are multiple possibilities such as `GUIDED` to move the drone position by positon using a right click on "fly to" and select the altitde. Also `ALTITUDE` to enter the target position manually on the command line, or even loading a mission/creating one by drawing points and switch to `AUTO` mode. Among many other more.\
+Then I followed some steps of [this testing page](https://ardupilot.org/dev/docs/using-sitl-for-ardupilot-testing.html#using-sitl-for-ardupilot-testing) to see the different possibilites given by SITL (vehicule, start location, simulate OSD and some params to modify) and actions possibles.
+3. To see if Gazebo worked fine I tried to give it the same commands from [this video](https://youtu.be/n_M5Vs5FBGY).
