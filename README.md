@@ -17,7 +17,7 @@ The previous project found solutions with :
 - SJTU drone, fork of TUM Simulator on Melodic, Parrot ARDrone,
 - ArduPilot and SITL simulator, no need of ROS nor Gazebo but compatible, very handy and widespread.
 
-
+We have looked for the more widespread simulators that could be used along with ROS.
 
 ### Comparison of exiting simulator :
 
@@ -53,12 +53,13 @@ Sensors | Camera, GPS, mission | Forward camera, laser, sonar, [many more...](ht
 Topics | uav1/... same as before | Odom, attitude, cmd_vel | [Topics related to sensors](https://github.com/edowson/sjtu_drone#read-sensor-data-from-ros-topics) or use RQT GUI | 
 Navigation | Joysticks | Joysticks, can add keyboard | Joystick, keyboard or waypoints | Xbox joysticks, waypoints, autonomous | Waypoints in a text file
 Worlds | Some  (collision etc) | Complex, indoor and Outdoor | Some | Many, indoor and outdoor | Some, outside
-Physical impact on the drone | None | | Wind | Wind | Wind
+Physical impact on the drone | None | Wind | Wind | Wind | Wind
 GUI | Rviz or rqt_gui | Rviz | rqt_gui or GZcliebnt from Gazebo | Rviz | Rviz 
 Compatibility | Gazebo pluging and a modifiable URDF file, used with the OSDK | Generic modifiable quadrortor URDF file, interface with Gazebo, cannot support MAVLinks and hardware platforms like Pixhawk. Can be interfaced with [MoveIt!](https://github.com/tahsinkose/hector-moveit) | Many Gazebo plugins | Use mav comm package from PX4, MoveIt! and RotorS | Modifiable URDF files, 
 More | Need the drone. Collision free | [Kinect](https://github.com/kkelchte/hector_quadrotor), multiple plugins, demos, flight dynamics | Simulate a race. May need [Gazebo 9 and Ubuntu 18.04](https://github.com/tahsinkose/sjtu-drone). Fork of [tum_simulator](http://wiki.ros.org/tum_simulator) | Path planning, obstacle avoidance, ~2 and 3D mapping | Choose your own FDM backends
 Links | See branch ROS_Kinetic_Gazebo | [Package](http://wiki.ros.org/hector_quadrotor), [tutorial](https://hub.packtpub.com/using-ros-uavs/), [more explanations and possibilities](https://wiki.ros.org/tu-darmstadt-ros-pkg/) | See previous work or [here](https://github.com/tahsinkose/sjtu-drone) | See [here](https://github.com/wilselby/ROS_quadrotor_simulator) | [Tutorial](https://github.com/gsilano/BebopS)
 
+If we want to use more advanced flight fonctionalities, flight controllers can also be used. They need a more complicated Data structure with often several softwares that have to be interfaced together.
 
 ### Flight controller : 
 
