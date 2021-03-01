@@ -66,8 +66,9 @@ I used the guided mode and *armed the motors* which is very important otherwise 
   >    - `ALTITUDE` to enter the target position manually on the command line,
   >    - or even [loading a mission/creating one by drawing points](https://ardupilot.org/copter/docs/common-planning-a-mission-with-waypoints-and-events.html) and switching to the `AUTO` mode.
   > Beware, [Mission Planner](https://ardupilot.org/planner/index.html#home) is a full-featured ground station application for ArduPilot but available **only** on Windows.
-<br>   
- *I guided my drone using "Fly to" with a right click on tge map and couldn't use a joystick with my actual computer. I could also write waypoints on my shell in Guided Mode.*
+
+
+ *I guided my drone using "Fly to" with a right click on tge map and couldn't use a joystick with my actual computer. I could also write waypoints on my shell in Guided Mode.*  
   - Wind : Tested with the wind at 10m/s and 50m/s with 
            
         param set SIM_WIND_DIR 180
@@ -76,7 +77,8 @@ I used the guided mode and *armed the motors* which is very important otherwise 
   - Fence : I draw a fence with a right click so the drone wasn't able to fly there, one have to enable it with `param set fence_enable 1` when on Guided Mode.
   - Draw mission : I draw it using the map on SITL, it starts when switching to `mode auto` and use `wp loop` to repeat the mission over and over again.
   - Stop a mission : To stop a mission and land at home I used `mode rtl`.  
-<br>
+  
+
 Now I could test with Gazebo :
   - To launch it change the sim_vehicule in the first shell (ctrl+C and type this command) `sim_vehicle.py -f gazebo-iris --console --map`, open another shell and type `cd` then `gazebo --verbose worlds/iris_arducopter_runway.world`.
   - I select the drone on Gazebo and clicked on *follow* to better see where it was going.
