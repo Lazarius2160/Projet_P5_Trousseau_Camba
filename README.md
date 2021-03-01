@@ -1,7 +1,4 @@
-# Projet_P5_Trousseau_Camba
-
-
-## Simulation when working on ROS Kinetic for DJI 
+# Simulation when working on ROS Kinetic for DJI 
    
    FOR THE TWO SOLUTIONS HERE, NEED TO HAVE THE REAL DRONE TO BE PLUGED TO, SO THE SIMULATION CAN WORK PROPERLY.\
    Because it works as an *HIL Hardware In The Loop* : "HIL testing is a technique where real signals from a controller are connected to a test system that simulates reality, tricking the controller into thinking it is in the assembled product." from [ni.com](https://www.ni.com/fr-fr/innovations/white-papers/17/what-is-hardware-in-the-loop-.html#section-1136066798).
@@ -10,7 +7,7 @@
    Hence, when using OSDK to develop the application (solution 2), developers need to purchase a drone and an onboard computer.
 
 
-### General configuration : 
+## General configuration : 
 
 Configuration required : 
 -	Ubuntu 16.04 (x86/ARM)
@@ -19,7 +16,7 @@ Configuration required :
 -  Install C, C++ Compiler and Development Tools by installing build-essential
 
 
-#### DJI Drones (M100, M210, ..., M600) with the DJI assistant OSDK
+### DJI Drones (M100, M210, ..., M600) with the DJI assistant OSDK
 1. General informations
 
    Onboard Software Development Kit for those who want to develop only software and rapidly prototype, it simulates the sensors on the robot which flies on an empty world.\
@@ -53,7 +50,7 @@ Same as before plus :
 -	Gazebo 7 or more (to check use `gazebo --version`)
 
 
-#### DJI_M100 GitHUb version
+### DJI_M100 GitHUb version
 1. General informations
 
    The DJI M100 is a quadrotor drone which needs a kinetic ROS version to work with hector_quadrotor. However the simulation can be done on Melodic (just need to add a pluging to hector).\   
