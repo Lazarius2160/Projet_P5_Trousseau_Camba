@@ -3,7 +3,8 @@
 ## Testing Ardupilot with Gazebo simulator and ROS
 
 ### Introduction :
-The last group project tried out this solution which worked well. However it did not used Gazebo nor ROS, hence I am going to follow the tutorial they have used for Ardupilot and SITL, then add those for Gazebo and ROS.
+The last group project tried out this solution which worked well. However it did not used Gazebo nor ROS, hence I am going to follow the tutorial they have used for Ardupilot and SITL, then add those for Gazebo and ROS.  
+The Gazebo part uses a pure Gazebo plugin so there is no need of ROS however it is [still possible to use ROS with normal gazebo-ros packages](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html#plugin-installation).
 
 
 The architecture is the following : 
@@ -11,11 +12,15 @@ The architecture is the following :
 - ArduCopter, for simulating the drones,
 - SITL to simulate the environnement, will try to add Gazebo plugins to do the simulation inside it,
 - MAVProxy, a UAV ground station software package for MAVLink based systems,
-- MAVROS, a ROS “node” that can convert between ROS topics and MAVLink messages allowing ArduPilot vehicles to communicate with ROS,
+- MAVROS, a ROS “node” that can convert between ROS topics and MAVLink messages allowing ArduPilot vehicles to communicate with ROS.  
 
+
+Here is a schema of the controller and SITL (Flight Gear is optionnal I did not use it), one will use sim_vehicule.py: ![ArdupilotSoftwareintheLoopSITL](https://user-images.githubusercontent.com/76939787/109513125-1080c880-7aa5-11eb-8512-ee62ae74b854.jpeg)  
+<br>
 
 **For the moment is not possible to have [SITL + ROS + Gazebo](https://ardupilot.org/dev/docs/ros-gazebo.html) but only SITL + ROS or  SITL + Gazebo with SITL used as a Gazebo plugin. [Here](https://diydrones.com/profiles/blogs/705844-BlogPost-2151758) is a discussion and a shematic of the attempt made.**  
-![Ardu+Gazebo+ROS](https://user-images.githubusercontent.com/76939787/109482113-e49e1c80-7a7d-11eb-8096-f7ee1d250e97.png)
+<br>
+![Ardu+Gazebo+ROS](https://user-images.githubusercontent.com/76939787/109482113-e49e1c80-7a7d-11eb-8096-f7ee1d250e97.png)  
 
 
 
@@ -46,33 +51,36 @@ It also installs [gitk](https://git-scm.com/docs/gitk/) a repository browser, an
 I also followed some steps of [this testing page](https://ardupilot.org/dev/docs/using-sitl-for-ardupilot-testing.html#using-sitl-for-ardupilot-testing) to see the different possibilites given by SITL (vehicule, start location, simulate OSD and some params to modify) and actions possibles.
 
 2. Then I tried this tutorial to test my SITL simulation [Copter SITL/MAVProxy tutorial](https://ardupilot.org/dev/docs/copter-sitl-mavproxy-tutorial.html) to be sure everything worked fine before trying to add Gazebo and ROS.  
-I tested everyting this way, first with SITL with Gazebo:
-  - Launch simulation : inside your working space `cd ardupilot/ArduCopter     sim_vehicule.py --map --console` Console is useful to see what is enable or not on the drone and simulator.  
-  - To take off: 
+<br>
+I tested everyting this way, first with SITL without Gazebo:  
+  - Launch simulation : go inside your working space and do `cd ardupilot/ArduCopter`, now launch `sim_vehicule.py --map --console`. Console is useful to see what is enable or not on the drone and simulator.  
+  - Take off: 
     
         mode guided  
         arm throttle  
         takeoff 40
     
-I used the guided mode and *armed the motors* which is very important otherwise the drone won't take off, I also had to write my commands on my terminal not in the ArduPilot console.  
+I used the guided mode and *armed the motors* which is very important otherwise the drone won't take off (wait until "pre armed good"), I also had to write my commands on my terminal not in the ArduPilot console.  
   > To guide the drone there are multiple possibilities such as :
   >    - `GUIDED` to move the drone position by positon using a right click on "fly to" and select the altitude,
   >    - `ALTITUDE` to enter the target position manually on the command line,
   >    - or even [loading a mission/creating one by drawing points](https://ardupilot.org/copter/docs/common-planning-a-mission-with-waypoints-and-events.html) and switching to the `AUTO` mode.
   > Beware, [Mission Planner](https://ardupilot.org/planner/index.html#home) is a full-featured ground station application for ArduPilot but available **only** on Windows.
-   
-  - I guided my drone using "Fly to" with a right click on tge map and couldn't use a joystick with my actual computer. I could also write waypoints on my shell in mode guided.
-  - Tested with the wind at 10m/s and 50m/s with 
+<br>   
+ *I guided my drone using "Fly to" with a right click on tge map and couldn't use a joystick with my actual computer. I could also write waypoints on my shell in Guided Mode.*
+  - Wind : Tested with the wind at 10m/s and 50m/s with 
            
         param set SIM_WIND_DIR 180
         param set SIM_WIND_SPD 10
-  - I draw a fence with a right click so the drone wasn't able to fly there, and tried to draw one with the keyboard. 
-  - Draw mission : I draw it using the map on SITL, it launches when switching to `mode auto` and use `wp loop` to repeat the mission over and over again.
-  - To stop a mission and land at home I used `mode rtl`.  
-
+        
+  - Fence : I draw a fence with a right click so the drone wasn't able to fly there, one have to enable it with `param set fence_enable 1` when on Guided Mode.
+  - Draw mission : I draw it using the map on SITL, it starts when switching to `mode auto` and use `wp loop` to repeat the mission over and over again.
+  - Stop a mission : To stop a mission and land at home I used `mode rtl`.  
+<br>
 Now I could test with Gazebo :
-  - To launch it just write `gazebo --verbose worlds/iris_arducopter_runway.world` on another shell with the first step of SITL.
-  - I repeated the same steps except for the wind part (different way to do this), to set a goal position I had to use the waypoints and not fly to. 
+  - To launch it change the sim_vehicule in the first shell (ctrl+C and type this command) `sim_vehicle.py -f gazebo-iris --console --map`, open another shell and type `cd` then `gazebo --verbose worlds/iris_arducopter_runway.world`.
+  - I select the drone on Gazebo and clicked on *follow* to better see where it was going.
+  - Then I repeated the same steps except for the wind part (different way to do this), in Gazebo the RTL made it return to the last landing position.
   - Beware, all the steps worked fine except the circle mode (altitude decrease without a crash but the simulation does not respond).  
 
 3. To see if Gazebo worked fine I tried to give it the same commands from [this video](https://youtu.be/n_M5Vs5FBGY).
