@@ -1,32 +1,37 @@
-# Projet_P5_Trousseau_Camba
+# Testing Ardupilot with Gazebo simulator and/or ROS
 
-## Testing Ardupilot with Gazebo simulator and ROS
-
-### Introduction :
-The last group project tried out this solution which worked well. However it did not used Gazebo nor ROS, hence I am going to follow the tutorial they have used for Ardupilot and SITL, then add those for Gazebo and ROS.  
-The Gazebo part uses a pure Gazebo plugin so there is no need of ROS however it is [still possible to use ROS with normal gazebo-ros packages](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html#plugin-installation).
-
+## Introduction :
+The last group project tried out this solution which worked well (Ardupilot + SITL). However they did not used Gazebo nor ROS, hence I am going to follow the tutorial they have used for Ardupilot and SITL, then add those for Gazebo and ROS.  
+<br>
+**But beware, for the moment is not possible to have [SITL + ROS + Gazebo](https://ardupilot.org/dev/docs/ros-gazebo.html) but only SITL + ROS or  SITL + Gazebo with SITL used with a Gazebo plugin. [Here](https://diydrones.com/profiles/blogs/705844-BlogPost-2151758) is a discussion and a shematic of the attempt made to use them 3 together :**  
+![ROS+Gazebo+SITL](https://user-images.githubusercontent.com/76939787/109482113-e49e1c80-7a7d-11eb-8096-f7ee1d250e97.png)  
+<br>
+Indeed, the Gazebo part uses a pure Gazebo plugin so there is no need of ROS however it is [still possible to use ROS with normal gazebo-ros packages](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html#plugin-installation).
+<br>
 
 The architecture is the following : 
 - Ardupilot, as a flight controller,
 - ArduCopter, for simulating the drones,
 - SITL to simulate the environnement, will try to add Gazebo plugins to do the simulation inside it,
 - MAVProxy, a UAV ground station software package for MAVLink based systems,
-- MAVROS, a ROS “node” that can convert between ROS topics and MAVLink messages allowing ArduPilot vehicles to communicate with ROS.  
+- If using : 
+  - ROS : use MAVROS, a ROS “node” that can convert between ROS topics and MAVLink messages allowing ArduPilot vehicles to communicate with ROS.  
+  - Gazebo : a Gazebo Plugin  
 
 
-Here is a schema of the controller and SITL (Flight Gear is optionnal I did not use it), one will use sim_vehicule.py: ![ArdupilotSoftwareintheLoopSITL](https://user-images.githubusercontent.com/76939787/109513125-1080c880-7aa5-11eb-8512-ee62ae74b854.jpeg)  
+Here is a schema of the controller and SITL (Flight Gear is optionnal I did not use it), one will use sim_vehicule.py: 
 <br>
-
-**For the moment is not possible to have [SITL + ROS + Gazebo](https://ardupilot.org/dev/docs/ros-gazebo.html) but only SITL + ROS or  SITL + Gazebo with SITL used as a Gazebo plugin. [Here](https://diydrones.com/profiles/blogs/705844-BlogPost-2151758) is a discussion and a shematic of the attempt made.**  
+![ArdupilotSoftwareintheLoopSITL](https://user-images.githubusercontent.com/76939787/109513125-1080c880-7aa5-11eb-8512-ee62ae74b854.jpeg)  
 <br>
-![Ardu+Gazebo+ROS](https://user-images.githubusercontent.com/76939787/109482113-e49e1c80-7a7d-11eb-8096-f7ee1d250e97.png)  
 
 
 
 ### General configuration:
 - ROS melodic
-- Ubuntu 16.04 at least
+- Ubuntu 16.04 at least  
+
+
+## Ardupilot and SITL : 
 
 
 ### Installation :
@@ -42,9 +47,6 @@ It also installs [gitk](https://git-scm.com/docs/gitk/) a repository browser, an
 3. It also let us updates [MavProxy](https://ardupilot.org/mavproxy/index.html#home), which a "UAV ground station software package for MAVLink based systems". First I installed it using [this website](https://ardupilot.org/mavproxy/docs/getting_started/download_and_installation.html#linux) and to get everything up to date.
 > MAVProxy allows to give commands to the UAV in the simulation. For example, to arm the engines, disarm them, give the UAV a mission and more generally manage the UAV and the simulation.
 
-4. To use Gazebo as an external simulator. I used this **[third tutorial](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html)** which went smoothly and I was able to take off. **_The gazebo part is tricky, especially for simulating everything inside it, it easier to just plot SITL inside gazebo._**
-
-5. ROS MAVRos est un nœud ROS qui permet d’interagir avec ces commandes à travers ROS et donc de créer une interface entre les deux logiciels.  
 
 ### Testing : 
 1. The tutorial [Setting up SITL on Linux](https://ardupilot.org/dev/docs/setting-up-sitl-on-linux.html#setting-up-sitl-on-linux) was made to configure and launch SITL. Not very precise and complete, I skipped it quickly.  
@@ -77,12 +79,30 @@ I used the guided mode and *armed the motors* which is very important otherwise 
   - Fence : I draw a fence with a right click so the drone wasn't able to fly there, one have to enable it with `param set fence_enable 1` when on Guided Mode.
   - Draw mission : I draw it using the map on SITL, it starts when switching to `mode auto` and use `wp loop` to repeat the mission over and over again.
   - Stop a mission : To stop a mission and land at home I used `mode rtl`.  
-  
 
-Now I could test with Gazebo :
+
+## Using Gazebo as an external simulator :
+When the first part worked fine I tried to add Gazebo to my simulation. 
+
+### Installation :
+To use Gazebo as an external simulator. I used this **[third tutorial](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html)** which went smoothly and I was able to take off. **_The gazebo part is tricky, especially for simulating everything inside it, it easier to just plot SITL inside gazebo._**
+
+### Testing : 
+Now that I could test with Gazebo I had to :
   - To launch it change the sim_vehicule in the first shell (ctrl+C and type this command) `sim_vehicle.py -f gazebo-iris --console --map`, open another shell and type `cd` then `gazebo --verbose worlds/iris_arducopter_runway.world`.
   - I select the drone on Gazebo and clicked on *follow* to better see where it was going.
   - Then I repeated the same steps except for the wind part (different way to do this), in Gazebo the RTL made it return to the last landing position.
   - Beware, all the steps worked fine except the circle mode (altitude decrease without a crash but the simulation does not respond).  
+ 
+ 
+To see if Gazebo worked fine I tried to give it the same commands from [this video](https://youtu.be/n_M5Vs5FBGY).  
 
-3. To see if Gazebo worked fine I tried to give it the same commands from [this video](https://youtu.be/n_M5Vs5FBGY).
+
+## Interfacing Ardupilot and SITL with ROS :
+When I thought I was done with Gazebo I went back to the part without Gazebo and tried to interfaced ROS with my autopilot.
+
+### Installation :
+
+
+### Testing : 
+ROS MAVRos est un nœud ROS qui permet d’interagir avec ces commandes à travers ROS et donc de créer une interface entre les deux logiciels.  
