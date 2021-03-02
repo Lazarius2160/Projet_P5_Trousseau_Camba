@@ -19,6 +19,10 @@ The previous project found solutions with :
 
 We have looked for the more widespread simulators that could be used along with ROS.
 
+  
+## Comparison :  
+
+
 ### Comparison of exiting simulator :
 
 Simulators | Gazebo | DJI Assistant | jMAVsim | New Paparazzi Simulator
@@ -102,5 +106,7 @@ The former group project tried out :
 - SJTU_drone, no issues noted
 - ArduPilot and SITL, the most advanced tutorial with the most capacities, but did not try with Gazebo.\
 
-**A compléter après la réunion de Mardi**
+## Conclusion : 
+
+## How to use this repo : 
 
