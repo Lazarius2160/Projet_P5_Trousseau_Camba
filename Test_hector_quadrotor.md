@@ -22,9 +22,13 @@ a SLAM tool.
 
 Considering that you already have created your ROS workspace clone the following packages in the "src" folder :
 > git clone -b kinetic-devel https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor
+
 > git clone -b catkin https://github.com/tu-darmstadt-ros-pkg/hector_localization
+
 > git clone -b kinetic-devel https://github.com/tu-darmstadt-ros-pkg/hector_gazebo
+
 > git clone -b kinetic-devel https://github.com/tu-darmstadt-ros-pkg/hector_models
+
 > git clone -b catkin https://github.com/tu-darmstadt-ros-pkg/hector_slam
 
 2. These are others packages that are required, in particular in order to use a controller : 
