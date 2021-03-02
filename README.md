@@ -12,14 +12,14 @@ Indeed, the Gazebo part uses a pure Gazebo plugin so there is no need of ROS how
 The architecture is the following : 
 - Ardupilot, as a flight controller,
 - ArduCopter, for simulating the drones,
-- SITL to simulate the environnement, will try to add Gazebo plugins to do the simulation inside it,
-- MAVProxy, a UAV ground station software package for MAVLink based systems,
+- SITL to simulate the environnement, native firmware simulator + FDM program provided by ArduPilot,
+- MAVProxy, a UAV ground station software package for MAVLink based systems, talks to ArduPilot using the MAVLink protocol,
 - If using : 
-  - ROS : use MAVROS, a ROS “node” that can convert between ROS topics and MAVLink messages allowing ArduPilot vehicles to communicate with ROS.  
-  - Gazebo : a Gazebo Plugin  
+  - ROS : use MAVROS, a ROS “node” that can convert between ROS topics and MAVLink messages allowing ArduPilot vehicles to communicate with ROS,
+  - Gazebo : a Gazebo Plugin.  
 
 
-Here is a schema of the controller and SITL (Flight Gear is optionnal I did not use it), one will use sim_vehicule.py: 
+Here is a schema of the controller and SITL (Flight Gear is optionnal and works for planes, hence I did not use it), one will use sim_vehicule.py to launch everything in short : 
 <br>
 ![ArdupilotSoftwareintheLoopSITL](https://user-images.githubusercontent.com/76939787/109513125-1080c880-7aa5-11eb-8512-ee62ae74b854.jpeg)  
 <br>
@@ -85,7 +85,7 @@ I used the guided mode and *armed the motors* which is very important otherwise 
 When the first part worked fine I tried to add Gazebo to my simulation. 
 
 ### Installation :
-To use Gazebo as an external simulator. I used this **[third tutorial](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html)** which went smoothly and I was able to take off. **_The gazebo part is tricky, especially for simulating everything inside it, it easier to just plot SITL inside gazebo._**
+To use Gazebo as an external simulator. I used this **[third tutorial](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html)** which went smoothly and I was able to take off. *"The gazebo part is tricky, especially for simulating everything inside it, it easier to just plot SITL inside gazebo."*, indeed Gazebo is used
 
 ### Testing : 
 Now that I could test with Gazebo I had to :
