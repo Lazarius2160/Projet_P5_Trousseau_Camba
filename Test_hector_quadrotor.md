@@ -71,6 +71,6 @@ or
 2. Before beeing able to control the drone you need to enable the motors :
 > rosservice call /enable_motors "enable: true"
 
-3.You can start to control the drone with your keyboard using :
+3. You can start to control the drone with your keyboard using :
 > rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
