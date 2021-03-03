@@ -60,6 +60,7 @@ The connection to ArduCopter through MAVlink showed here were used to link it wi
 
 The control would be done through a script (the Simulation blue block) that would publish inside the /cmd_vel topic (control the speed of the drone) and subscribe to the /poseupdate one to get the new position.
 
+
 ### Testing : 
 
 1. To start the demo with an already defined map and the slam functionalities use : 
@@ -74,3 +75,5 @@ or
 3. You can start to control the drone with your keyboard using :
 > rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
+Here is the rqt graph after having started the demo : 
+![rosgraph_hector_quadrotor](https://user-images.githubusercontent.com/47387835/109857762-ef5dda80-7c52-11eb-8ede-f93b0a7233c5.png)
