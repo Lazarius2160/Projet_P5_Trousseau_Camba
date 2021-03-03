@@ -50,6 +50,7 @@ And source the workspace :
 
 > source devel/setup.bash 
 
+### ROS architecture :
 
 Here is a schema that helps to understand how to control the drone within the simulation. For simulation only you just need the ROS block (using hector packages and gazebo). 
 The connection to ArduCopter through MAVlink showed here were used to link it with a real drone as well.
@@ -57,7 +58,7 @@ The connection to ArduCopter through MAVlink showed here were used to link it wi
 ![ros_node_simulation_hector](https://user-images.githubusercontent.com/47387835/109682712-91f45b80-7b76-11eb-8c2b-fbd4d721ede6.PNG)
 <br>
 
-
+The control would be done through a script (the Simulation blue block) that would publish inside the /cmd_vel topic (control the speed of the drone) and subscribe to the /poseupdate one to get the new position.
 
 ### Testing : 
 
@@ -69,4 +70,6 @@ or
 2. Before beeing able to control the drone you need to enable the motors :
 > rosservice call /enable_motors "enable: true"
 
-3.
+3.You can start to control the drone with your keyboard using :
+> rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+
