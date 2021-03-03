@@ -110,3 +110,9 @@ The former group project tried out :
 
 ## How to use this repo : 
 
+There are two branch that have been created depending on which ROS version is used (Kinetic or Melodic).
+
+-In the kinetic branch there are the explanation about the DJI assistant test along with the installation file.
+
+-In the melodic branch there are one markdown file for each method we tried : hector_quadrotor package and ArduPilot
+
