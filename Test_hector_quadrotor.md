@@ -64,6 +64,7 @@ The control would be done through a script (the Simulation blue block) that woul
 
 1. To start the demo with an already defined map and the slam functionalities use : 
 > roslaunch hector_quadrotor_demo indoor_slam_gazebo.launch
+
 or
 > roslaunch hector_quadrotor_demo outdoor_flight_gazebo.launch
 
