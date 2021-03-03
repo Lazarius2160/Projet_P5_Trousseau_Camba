@@ -46,24 +46,14 @@ Considering that you already have created your ROS workspace, clone the followin
 3. Then go back to your workspace to compile (as I used TheConstruct, I compiled with :  
 > catkin_make
 And source the workspace :
-![ros_simulation_hector](https://user-images.githubusercontent.com/47387835/109682404-4cd02980-7b76-11eb-99d0-1f57402de8bb.PNG)
 > source devel/setup.bash 
 
-The architecture is the following : 
-- Ardupilot, as a flight controller,
-- ArduCopter, for simulating the drones,
-- SITL to simulate the environnement, will try to add Gazebo plugins to do the simulation inside it,
-- MAVProxy, a UAV ground station software package for MAVLink based systems,
-- If using : 
-  - ROS : use MAVROS, a ROS “node” that can convert between ROS topics and MAVLink messages allowing ArduPilot vehicles to communicate with ROS.  
-  - Gazebo : a Gazebo Plugin  
 
-Here is a schema : 
+Here is a schema that helps to understand how to control the drone within the simulation. For simulation only you just need the ROS block (using hector packages and gazebo). The connection to ArduCopter through MAVlink of the system described here where used to link it with a real drone. 
 <br>
 ![ros_node_simulation_hector](https://user-images.githubusercontent.com/47387835/109682712-91f45b80-7b76-11eb-8c2b-fbd4d721ede6.PNG)
 <br>
 
-![ros_node_simulation_hector](https://user-images.githubusercontent.com/47387835/109682712-91f45b80-7b76-11eb-8c2b-fbd4d721ede6.PNG)
 
 
 ### Testing : 
