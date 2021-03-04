@@ -10,8 +10,4 @@ These two solutions were intrinsically different as their architecture is differ
 
 You will find explanations, tutorial and testing on "Test_ardupilot.md" and "Test_hector_quadrotor.md".
 
-## What we retained from it :
-les trucs bien et mauvais des 2 solutions
 
-## What is the solutions we have chosen and why :
-px4
