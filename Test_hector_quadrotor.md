@@ -86,8 +86,10 @@ Following by the tf_tree :
  We have already access to a lot a features such as : camera, sonar, laserscan. 
  We can control the drone with teleop or a joystick.
  
+ In order to simulate physical environmment you can publish within the /wind topic.
+ 
  This solution is really beginner friendly. 
- However if you need to realised more advanced mission, you will have to create your own script. You can see some example of code in the following thesis :
+ However if you need to realised more advanced mission, you will have to create your own script. You can see some example of code (simulation is page 49) in the following thesis :
  [Thesis_Hector_control.pdf](https://github.com/Lazarius2160/Projet_P5_Trousseau_Camba/files/6082694/Thesis_Hector_control.pdf)
 
  
