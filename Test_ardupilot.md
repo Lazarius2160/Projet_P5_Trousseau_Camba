@@ -3,6 +3,10 @@
 ## Introduction :
 The last group project tried out this solution which worked well (Ardupilot + SITL). However they did not used Gazebo nor ROS, hence I am going to follow the tutorial they have used for Ardupilot and SITL, then add those for Gazebo and ROS.  
 <br>
+Why adding ROS? Topic usage, plugins... And actions as real time graph analysis, SLAM, filters, camera etc  
+Why adding Gazebo? 3D, indoor flying, obstacle avoidance ...
+<br>
+
 **But beware, for the moment is not possible to have [SITL + ROS + Gazebo](https://ardupilot.org/dev/docs/ros-gazebo.html) but only SITL + ROS or  SITL + Gazebo with SITL used with a Gazebo plugin. [Here](https://diydrones.com/profiles/blogs/705844-BlogPost-2151758) is a discussion and a shematic of the attempt made to use them 3 together on ROS Indigo :**  
 ![ROS+Gazebo+SITL](https://user-images.githubusercontent.com/76939787/109482113-e49e1c80-7a7d-11eb-8096-f7ee1d250e97.png)  
 <br>
@@ -118,12 +122,14 @@ Thanks to the GUI I could try different things when the drone was flying:
 - RViz : I had trouble using RViz as the "add by topics" was giving me not working displays (path, initial pose, odometry, ...) only "Pose" would work.
 
 ## To go further : 
-As said before having ROS+Gazebo+SITL is not possible for now so I wasn't able to test it. Trying it would close a loop and make an even powerful tool.  
+As said before having ROS+Gazebo+SITL is not possible for now (only on ROS indigo at best) so I wasn't able to test it. Trying it would close a loop and make an even powerful tool.  
+Still, if one wants to do a control simulation there is no need of a ROS Gazebo connexion (as I did), however for exmplant to get a camera topic in ROS from Gazebo, you have to add gazebo-ros camera plugin connected to gazebo camera in the iris model file as described [here](https://github.com/SwiftGust/ardupilot_gazebo/issues/19).
 <br>
+
 Some people use [ROS and Hector SLAM to do non GPS Navigation](https://ardupilot.org/dev/docs/ros-slam.html), using a lidar simulated on Gazebo instead of lidar harware is possible and explained [here](https://discuss.ardupilot.org/t/arducopter-sitl-gazebo-ros-slam-simultaneous-localisation-and-mapping/63022/1).
 
 ## To conclude : 
 Even though the simulations went smoothly, had many parameters to customize, and was compatible with many hardware/simulators, unfortunatetly it is not (for the moment) fully compatible with OS, which is mandatory for our project.  
-Hence, I think that for this particular projet, PX4 would be better as it is developped along with a ROS team. The tutorial on how to use it and what it does with Gazebo is [here](https://docs.px4.io/master/en/simulation/ros_interface.html) and a previous test has been made by the former project team (go to the main branch/previous work/doc).  
+Hence, I think that for this particular projet, **[PX4](https://docs.px4.io/master/en/simulation/ros_interface.html)** would be better as it is developped along with a ROS team. The tutorial on how to use it and what it does with Gazebo is [here](https://docs.px4.io/master/en/simulation/ros_interface.html) and a previous test has been made by the former project team (go to the main branch/previous work/doc).  
 
-
+> Note : PX4 is not the preffered flight controller over the drone community, it is not really open sourced (even though works abd doc exists, the community and reliable code base is far from the ArduPilot's one), it supports less hadware, it has less features available... Which make it in the end less powerful than ArduPilot in terms of flight performances. For example it does not supports wind !
