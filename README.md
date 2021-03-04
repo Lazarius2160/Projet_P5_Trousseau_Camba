@@ -115,4 +115,4 @@ There are two branch that have been created depending on which ROS version is us
 -In the kinetic branch there are the explanation about the DJI assistant test along with the installation file.
 
 -In the melodic branch there are one markdown file for each method we tried : hector_quadrotor package and ArduPilot
-  We also created a folder with all the pictures that illustrates our markdown files and some extra graph.
+  We also created a folder with all the pictures that illustrate our markdown files and some extra graph.
