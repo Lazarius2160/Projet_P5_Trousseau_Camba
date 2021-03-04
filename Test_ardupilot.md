@@ -123,5 +123,7 @@ As said before having ROS+Gazebo+SITL is not possible for now so I wasn't able t
 Some people use [ROS and Hector SLAM to do non GPS Navigation](https://ardupilot.org/dev/docs/ros-slam.html), using a lidar simulated on Gazebo instead of lidar harware is possible and explained [here](https://discuss.ardupilot.org/t/arducopter-sitl-gazebo-ros-slam-simultaneous-localisation-and-mapping/63022/1).
 
 ## To conclude : 
+Even though the simulations went smoothly, had many parameters to customize, and was compatible with many hardware/simulators, unfortunatetly it is not (for the moment) fully compatible with OS, which is mandatory for our project.  
+Hence, I think that for this particular projet, PX4 would be better as it is developped along with a ROS team. The tutorial on how to use it and what it does with Gazebo is [here](https://docs.px4.io/master/en/simulation/ros_interface.html) and a previous test has been made by the former project team (go to the main branch/previous work/doc).  
 
 
