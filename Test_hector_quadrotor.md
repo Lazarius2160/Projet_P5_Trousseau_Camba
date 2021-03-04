@@ -77,10 +77,20 @@ or
 
 Here is the rqt graph after having started the demo : 
 ![rosgraph_hector_quadrotor](https://user-images.githubusercontent.com/47387835/109857762-ef5dda80-7c52-11eb-8ede-f93b0a7233c5.png)
-
+Following by the tf_tree :
 [tf_tree.pdf](https://github.com/Lazarius2160/Projet_P5_Trousseau_Camba/files/6082625/tf_tree.pdf)
 
 ### Conclusion : 
 
+ The packages are really easy to install and the simulation went very well.
+ We have already access to a lot a features such as : camera, sonar, laserscan. 
+ We can control the drone with teleop or a joystick.
+ 
+ This solution is really beginner friendly. 
+ However if you need to realised more advanced mission, you will have to create your own script. You can see some example of code in the following thesis :
+ [Thesis_Hector_control.pdf](https://github.com/Lazarius2160/Projet_P5_Trousseau_Camba/files/6082694/Thesis_Hector_control.pdf)
+
+ 
+ 
  
 
