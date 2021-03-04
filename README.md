@@ -106,7 +106,24 @@ The former group project tried out :
 - SJTU_drone, no issues noted
 - ArduPilot and SITL, the most advanced tutorial with the most capacities, but did not try with Gazebo.\
 
+>>>>>>> comment mettre Gazebo, ROS, lunix etc = general config
+
 ## Conclusion : 
+We tried out 3 solutions, working very differently from one to another :
+- Hector quadrotor, which is a meta package,
+- DJI assistant and flight simulator, a full suite of software to use with a DJI drone, unfortunatly we couldn't try it by ourselves,
+- Ardupilot flight controller paired with Gazebo or ROS.  
+<br>
+
+Hector had the advantage of being very user friendly : everthing comes with the package, no need to install many softwares.  
+DJI was very complete and accurate but would only work using the DJI hardware.  
+Ardupilot was the most complete but a bit hard to understand its architecture with ROS or Gazebo.
+<br>
+
+Yet, from what we tried, we would recommend **PX4 with ROS and Gazebo** for your project regarding our work and the previous one. In fact, it is the same architecture as Ardupilot but with ROS dpendencies "built in" (PX4 and ROS are working together to give us this solution). Even though the documentation, examples and community is bigger for Ardupilot, we think that PX4 open source documentation would me enough.  
+The hector package is not to put appart because of its versatility and utility with other solutions (such as ArduPilot); and DJI Assistant should be tried as you have the chance to already got the Hardware.  
+
+
 
 ## How to use this repo : 
 
