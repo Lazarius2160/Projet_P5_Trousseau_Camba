@@ -106,7 +106,7 @@ The former group project tried out :
 - SJTU_drone, no issues noted
 - ArduPilot and SITL, the most advanced tutorial with the most capacities, but did not try with Gazebo.\
 
->>>>>>> comment mettre Gazebo, ROS, lunix etc = general config
+**comment mettre Gazebo, ROS, lunix etc = general config**
 
 ## Conclusion : 
 We tried out 3 solutions, working very differently from one to another :
