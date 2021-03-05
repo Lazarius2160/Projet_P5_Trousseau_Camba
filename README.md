@@ -87,17 +87,17 @@ Notes :
 
 ### More projects : 
 Name | OSDK for DJI | Paparazzi Project
--------|-------|-------|--------
+-------|-------|-------|
 Type | Development toolkit for developing applications, which could run on the onboard computer. Needs to be used with the DJI assistant.| UAV multiple software
 ROS version | Kinetic, Cmake 2.8.3 or newer | Paparazzi Project
 Simulator | Got is own with the DJI assistant, compatible with Gazebo 7 or more through dji_m100 package | NPS or Gazebo
 Drones | All DJI | Rotorcrafts
 Sensors | Camera, GPS, mission, IMU | Depending on the vizualisation mode
-Navigation | With the assistant, use joysticks 
+Navigation | With the assistant, use joysticks |  
 Physical impact on the drone | None | 
 GUI | From the assistant | 
-More | Need the drone, runs on Linux and ROS 
-Links | [Package](https://github.com/dji-sdk/Onboard-SDK/)
+More | Need the drone, runs on Linux and ROS | 
+Links | [Package](https://github.com/dji-sdk/Onboard-SDK/) | 
 
 ### To summarize : 
 The project group found out that *Gazebo* was the best simulator they could use regarding its ROS compatibility, sensors emulated and modifiability/compatibility as it uses plugins to accept custom inputs, output custom data, and perform custom control in simulation.\
