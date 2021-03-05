@@ -6,8 +6,8 @@
 The goal of this 4-weeks project is to make a state of the art of the simulator avaible on the drone market now and try out some solution. 
 
 
-For this project, the *Software In the Loop* method must be priviledge as it "characterizes a numerical simulation of the operation of the software of an embedded system during which the entire environment, including the hardware part of the embedded system, is simulated." from [wikidictionnary](https://fr.wiktionary.org/wiki/software-in-the-loop), because it normally has to be done prior to the HIL.\
-The focus will be on simulators ROS friendly. Mostly using Melodic, as well as Kinetic if needed.
+For this project, the *Software In the Loop* method must be priviledge as it "characterizes a numerical simulation of the operation of the software of an embedded system during which the entire environment, including the hardware part of the embedded system, is simulated." from [wikidictionnary](https://fr.wiktionary.org/wiki/software-in-the-loop), because it normally has to be done prior to the HIL.  
+The focus will be on simulators ROS friendly. Mostly using Melodic, as well as Kinetic if needed.  
 
 
 The previous project found solutions with : 
@@ -25,21 +25,23 @@ We have looked for the more widespread simulators that could be used along with 
 
 ### Comparison of exiting simulator :
 
-Simulators | Gazebo | DJI Assistant | jMAVsim | New Paparazzi Simulator
-----------|----------|----------|----------|----------
-Type | Simulator 3D | Software with embedded simulator | Simulator 3D | Simulator 3D
-ROS version | All | Kinetic (and Melodic with plugins) | Melodic | [Under developpement](https://wiki.paparazziuav.org/wiki/Pprzros)
-Works on Linux | Yes | DJI's simulation supports only Windows/Mac, need to add the dji_m100 package below on the OSDK to make it run on Linux | Yes | Yes
-Drones available | Multirotors (1 to 8)| All DJI | Quadrotors | Rotorcrafts
-Sensors | Many (create and modify) | Many | No incorporation of sensors | Depending on the vizualisation mode
-Obstacles | Yes | None | No
-SITL | Yes | No | Yes | Yes
-Compatibility | Many | Gazebo | Use MAVLink protocol, Java3D library, works with PX4 | With all the Paparazzi suite and others tools
-Multi-vehicle simulation | Yes but can only simulate a single type of vehicle at a time  | No | Recommended if you need to support a lot of quadcopters, and the simulation only needs to be approximate| [Possible but need some troubleshooting](https://wiki.paparazziuav.org/wiki/NPS#Simulating_Multiple_Aircraft)
-Links | [Official website](http://gazebosim.org/) | [Link to download the assistant](https://www.dji.com/fr/downloads/softwares/assistant-dji-2-for-matrice), only empty world available by itself | [With SITL](https://bresch.gitbooks.io/devguide/content/en/simulation/jmavsim.html), and [more](https://docs.px4.io/master/en/simulation/jmavsim.html) | [Wiki](https://wiki.paparazziuav.org/wiki/NPS) | 
+Simulators | Gazebo | DJI Assistant | DJI flight simulator | jMAVsim | New Paparazzi Simulator
+----------|----------|----------|----------|----------|---------
+Type | Simulator 3D | Software with embedded simulator | Simulator 3D with flight controller and FDM | Simulator 3D of drones (not worlds) | Simulator 3D
+ROS version | All | Kinetic (and Melodic with plugins) | Not compatible | Melodic | [Under developpement](https://wiki.paparazziuav.org/wiki/Pprzros)
+Works on Linux | Yes | DJI's simulation supports only Windows/Mac, need to add the dji_m100 package below on the OSDK to make it run on Linux | No only Windows 10 | Yes | Yes
+Drones available | Multirotors (1 to 8)| All DJI | Many DJI | Quadrotors | Rotorcrafts
+Sensors | Many (create and modify) | Many | Many | No incorporation of sensors | Depending on the vizualisation mode
+Obstacles | Yes | None | Yes and avoidance | No | No
+Physical impact on the drone | Yes (wind ...) | No | Yes (wind, crash, floor effect...) | Some (crash...)
+Worlds | Many and customisable | One | Many | Not made for this | 
+SITL | Yes | No | No | Yes | Yes
+Compatibility | Many | Gazebo | [Can use various UAV controller](https://www.dji.com/fr/simulator/info) | Use MAVLink protocol, Java3D library, works with PX4, SITL simulator, interfaced to ROS | With all the Paparazzi suite and others tools
+Multi-vehicle simulation | Yes but can only simulate a single type of vehicle at a time  | No | No | Recommended if you need to support a lot of quadcopters, and the simulation only needs to be approximate| [Possible but need some troubleshooting](https://wiki.paparazziuav.org/wiki/NPS#Simulating_Multiple_Aircraft)
+Links | [Official website](http://gazebosim.org/) | [Link to download the assistant](https://www.dji.com/fr/downloads/softwares/assistant-dji-2-for-matrice), only empty world available by itself | [Official web site](https://www.dji.com/fr/simulator), free for some drone but need a dji account | [With SITL](https://bresch.gitbooks.io/devguide/content/en/simulation/jmavsim.html), and [more](https://docs.px4.io/master/en/simulation/jmavsim.html) | [Wiki](https://wiki.paparazziuav.org/wiki/NPS) | 
+More | Most complete and used | Only for DJI, poor versatility | Mostly for training, need at least a DJI controller | Multi drone | |
 
 
-\
 Added to the simulator, ROS packages are here to complete the simulation according to our needs.
 
 
@@ -63,7 +65,7 @@ Compatibility | Gazebo pluging and a modifiable URDF file, used with the OSDK | 
 More | Need the drone. Collision free | [Kinect](https://github.com/kkelchte/hector_quadrotor), multiple plugins, demos, flight dynamics | Simulate a race. May need [Gazebo 9 and Ubuntu 18.04](https://github.com/tahsinkose/sjtu-drone). Fork of [tum_simulator](http://wiki.ros.org/tum_simulator) | Path planning, obstacle avoidance, ~2 and 3D mapping | Choose your own FDM backends
 Links | See branch ROS_Kinetic_Gazebo | [Package](http://wiki.ros.org/hector_quadrotor), [tutorial](https://hub.packtpub.com/using-ros-uavs/), [more explanations and possibilities](https://wiki.ros.org/tu-darmstadt-ros-pkg/) | See previous work or [here](https://github.com/tahsinkose/sjtu-drone) | See [here](https://github.com/wilselby/ROS_quadrotor_simulator) | [Tutorial](https://github.com/gsilano/BebopS)
 
-If we want to use more advanced flight fonctionalities, flight controllers can also be used. They need a more complicated Data structure with often several softwares that have to be interfaced together.
+If we want to use more advanced flight fonctionalities, flight controllers can also be used. They need a more complicated Data structure with often several softwares that have to be interfaced together. 
 
 ### Flight controller : 
 
@@ -71,7 +73,7 @@ Flight controller | PX4 | Ardupilot | Paparazzi |
 -----|-----|-----|-----
 ROS version | Melodic | Melodic | Under developpement
 Simulator | Gazebo, jMAVsim | SITL, Gazebo | [Gazebo](https://wiki.paparazziuav.org/wiki/Gazebo) or its own simulator [New Paparazzi Simulator](https://wiki.paparazziuav.org/wiki/NPS) using JSBSim (FDM)
-Compatibility | Plugin Gazebo 9 | Plugin Gazebo, use [SITL](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html) and [MavProxy](https://ardupilot.org/mavproxy/index.html#home), however ROS with SITL in Gazebo is [under creation](https://ardupilot.org/dev/docs/ros-gazebo.html) | Gazebo, JBSim, FlightGear
+Compatibility | Plugin Gazebo 9 | Plugin Gazebo, use [SITL](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html)simulator and [MavProxy](https://ardupilot.org/mavproxy/index.html#home), however ROS with SITL in Gazebo is [under creation](https://ardupilot.org/dev/docs/ros-gazebo.html) | Gazebo, JBSim, FlightGear
 Drones | Multirotors | Wide range, can use package ArduCopter, [multirotors ready to use here](https://ardupilot.org/copter/docs/common-rtf.html#common-rtf) | Multirotors (choice limited by hardware) | Rotorcrafts
 Multi-vehicle simulation |[Possible with Gazebo, FlightGear and JMAVSim](https://docs.px4.io/master/en/simulation/multi-vehicle-simulation.html)  | [Tools in development](https://publications.waset.org/10010266/development-of-tools-for-multi-vehicles-simulation-with-robot-operating-system-and-ardupilot) |[Possible](https://wiki.paparazziuav.org/wiki/Simulation#Multiple_UAV_Simulation)
 Navigation | GPS (waypoints and position hold), stereo vision | GPS, mission planner, follow me and click on the simulation (with SITL) | GPS (waypoints and position hold), stereo vision
@@ -79,6 +81,7 @@ Communication | MAV Link | MAV Link or [MAVRos](http://wiki.ros.org/mavros) (see
 More | Flight stack and autopilot | DO not need ROS and Gazebo to work properly but compatible (see note 1), use Linux Ubuntu 18.04 | Automated take off and landing 
 Links | [Official github](https://github.com/PX4/PX4-Autopilot) | [Wiki](https://ardupilot.org/copter/index.html) |[Wiki](https://wiki.paparazziuav.org/wiki/Main_Page)
 
+> Notes about SITL : SITL allows you to run ArduPilot on your PC directly, without any special hardware. It takes advantage of the fact that ArduPilot is a portable autopilot that can run on a very wide variety of platforms. When running in SITL the sensor data comes from a flight dynamics model in a flight simulator. Is only in 2D but has many sensors : GPS, wind, barometer, avoidance, fence, vibrations...
 
  
 Notes :
@@ -100,22 +103,23 @@ More | Need the drone, runs on Linux and ROS |
 Links | [Package](https://github.com/dji-sdk/Onboard-SDK/) | 
 
 ### To summarize : 
-The project group found out that *Gazebo* was the best simulator they could use regarding its ROS compatibility, sensors emulated and modifiability/compatibility as it uses plugins to accept custom inputs, output custom data, and perform custom control in simulation.\
+The project group found out that *Gazebo* was the best simulator they could use regarding its ROS compatibility, sensors emulated and modifiability/compatibility as it uses plugins to accept custom inputs, output custom data, and perform custom control in simulation. 
 The former group project tried out :
 - BebopsS, worked well but needed to change the waypoints directly onto the waypoints.txt
 - SJTU_drone, no issues noted
-- ArduPilot and SITL, the most advanced tutorial with the most capacities, but did not try with Gazebo.\
+- ArduPilot and SITL, the most advanced tutorial with the most capacities, but did not try with Gazebo.  
 
-**comment mettre Gazebo, ROS, lunix etc = general config**
+Hence, we choose to test Ardupilot with Gazebo and/or ROS and Hector Quadrotor, also looking for informations about DJI assistant because the ALPAGA team as a M600. 
+
 
 ## Conclusion : 
 We tried out 3 solutions, working very differently from one to another :
 - Hector quadrotor, which is a meta package,
-- DJI assistant and flight simulator, a full suite of software to use with a DJI drone, unfortunatly we couldn't try it by ourselves,
+- DJI assistant and flight simulator, a full suite of software to use with a DJI drone, unfortunatly we couldn't try it by ourselves,  
 - Ardupilot flight controller paired with Gazebo or ROS.  
 <br>
 
-Hector had the advantage of being very user friendly : everthing comes with the package, no need to install many softwares.  
+Hector had the advantage of being very user friendly : everthing comes with the package, no need to install many softwares and low level so easy to modify.  
 DJI was very complete and accurate but would only work using the DJI hardware.  
 Ardupilot was the most complete but a bit hard to understand its architecture with ROS or Gazebo.
 <br>
