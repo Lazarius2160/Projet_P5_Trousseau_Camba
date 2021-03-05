@@ -24,57 +24,57 @@ For the hardware part :
 ### General informations :
 Onboard Software Development Kit for those who want to develop only software and rapidly prototype, it simulates the sensors on the robot which flies on an empty world.  
 No need to have the company onboard computer, instead one can use a thrid party computer as explained [here](https://developer.dji.com/onboard-sdk/documentation/purchaseguide/hardware.html#onboard-computer).  
-Simulator integrated to the assistant or possible to contect it with Gazebo for more functionnalities.  
-Use a RQT GUI by itself, may be used with Rviz (see below on the next section).  
+Simulator integrated to the assistant or possible to connect it with Gazebo for more functionnalities.  
+Use a native RQT GUI, may be used with Rviz (see below on the next section).  
 However, having a ready-made SDK also restricts the developer from many aspects, mostly by the assumptions made by product owner while configuring it.
    
 ### Drones to be used :
-DJI Drones M100, M210, ..., until M600 among other from different categories (Mavik etc).
+All DJI Drones from M100, M210, ..., until M600 as well as others from different categories (Mavik etc).
 
 ### Sensors emulated :
-Camera, odometry, altitude, inertia unit IMU, joint state. Navigate with GPS. Can control through joysticks, keyboard.
+Camera, odometry, altitude, inertia unit IMU, joint state. Navigate with GPS. Can be controlled with joysticks or keyboard.
 
 ### How it works :
-Simulate the drone in the DJI assistant 2, visualize the informations and camera with an RQT GUI.  
-   The drone would then be piloted through the UAV provided with the drone.  
+Simulates the drone in the DJI assistant 2, visualize the informations and camera with an RQT GUI.  
+The drone would then be piloted through the UAV provided with the drone.  
 
 ### Installation tutorial :
 Make sure to have the configuration needed and follow [official tutorial](https://developer.dji.com/onboard-sdk/documentation/quickstart/development-environment.html#configure-ros-development-environment) or look at the [package on ROS.org](http://wiki.ros.org/dji_sdk) and follow the [tutorial](http://wiki.ros.org/dji_sdk/Tutorials/Getting%20Started).
 
 ### Testing :
 
-   Impossible to do without the drone.
+Impossible to do without the drone.
 
 
-## To get more capacites, it is possible to use the Gazebo simulator
+**To get more capacites, it is possible to use the Gazebo simulator**  
+<br>
 
+## DJI_M100 GitHUb version adding Gazebo
+
+### General configuration :
 Configuration required :
 Same as before plus :
 -	Gazebo 7 or more (to check use `gazebo --version`)
 
 
-## DJI_M100 GitHUb version adding Gazebo
 #### General informations :
-
-   The DJI M100 is a quadrotor drone which needs a kinetic ROS version to work with hector_quadrotor. However the simulation can be done on Melodic (just need to add a pluging to hector).  
-   Able to work in collision free mode, can be piloted (joystick or keyboard) or given a nav goal on Rviz. Hence,it needs Rviz to work with dji_m100_description.
+The DJI M100 is a quadrotor drone which needs a kinetic ROS version to work with hector_quadrotor. However the simulation can be done on Melodic (just need to add a pluging to hector).  
+Able to work in collision free mode, can be piloted (joystick or keyboard) or given a nav goal on Rviz. Hence,it needs Rviz to work with dji_m100_description.  
 <br>
-   Customisable : some worlds already integrated (collision sphere, search and rescue...).  
-   Some features already included : Landing, take-off, send goal.  
-   Switching to ROS Melodic is possible if a plugin to convert hector_quadrotor is used.    
-   Launch file as examples for the Gazebo simulation.
+Customisable : some worlds already integrated (collision sphere, search and rescue...).  
+Some features already included : Landing, take-off, send goal.  
+Switching to ROS Melodic is possible if a plugin to convert hector_quadrotor is used.    
+Launch file as examples for the Gazebo simulation.
    
 ### Sensors emulated :
-
-   Camera, odometry, altitude, inertia unit IMU, joint state. Navigate with GPS.
+Camera, odometry, altitude, inertia unit IMU, joint state. Navigate with GPS.
 
 ### How it works :
-
-   Simulate the drone in Gazebo and visualize informations through Rviz.  
-   The DJI_m100_controller class represents the DJI M100 hardware in Gazebo for the gazebo_ros_control plugin using SITL.  
-   The drone would then be piloted through a logitech_gamepad.launch or xbox_controller.launch for the Xbox gamepads controllers. To controll it with the keyboard     need to launch :
+Simulate the drone in Gazebo and visualize informations through Rviz.  
+The DJI_m100_controller class represents the DJI M100 hardware in Gazebo for the gazebo_ros_control plugin using SITL.  
+The drone would then be piloted through a logitech_gamepad.launch or xbox_controller.launch for the Xbox gamepads controllers. To controll it with the keyboard need to launch :
    `python hector_keyboard_teleop/src/hector_keyboard_teleop.py` 
-   And move it with : w - Forward, a - Left, s - Reverse, d - Right, z - Climb up, c - Climb down, . - Stop
+And move it with : w - Forward, a - Left, s - Reverse, d - Right, z - Climb up, c - Climb down, . - Stop
 
 ### Installation tutorial :
 
@@ -91,6 +91,8 @@ Same as before plus :
       `roslaunch dji_m100_gazebo simulate.launch`
       
 ### Testing :
+To test if the hector quadrotor works fine using Gazebo and DJI assistant, try `roslaunch hector_quadrotor_demo outdoor_flight_gazebo.launch`, somertimes, it needs to have the motor enable manually `rosservice call /enable_motors "enable: true` .  
 
-   To test if the hector quadrotor works fine, try `roslaunch hector_quadrotor_demo outdoor_flight_gazebo.launch`, somertimes, it needs to have the motor enable manually `rosservice call /enable_motors "enable: true` .
 
+## To conclude :
+This solution is pretty easy to use and rather user-friendly, however the software cannot be changed for experimentations hence this solution is not flexible enough for such a project. But may be usefull for training and experimenting the first drone fly.
