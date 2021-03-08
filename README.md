@@ -46,10 +46,10 @@ Make sure to have the configuration needed and follow [official tutorial](https:
 Impossible to do without the drone.
 
 
-**To get more capacites, it is possible to use the Gazebo simulator**  
+**To get more capacites, it is possible to use the Gazebo simulator instead of the assistant**  
 <br>
 
-## DJI_M100 GitHUb version adding Gazebo
+## DJI_M100 GitHub version using Gazebo
 
 ### General configuration :
 Configuration required :
@@ -58,12 +58,14 @@ Same as before plus :
 
 
 #### General informations :
+All the informations come from this [GitHub](https://github.com/dji-m100-ros/dji_m100_gazebo) (works in Melodic) and **it only works with the M100** but can be adapted to other drones.
 The DJI M100 is a quadrotor drone which needs a kinetic ROS version to work with hector_quadrotor. However the simulation can be done on Melodic (just need to add a pluging to hector).  
 It can work in collision free mode, be piloted (joystick or keyboard) or given a nav goal on Rviz. Hence,it needs Rviz to work with dji_m100_description.  
 <br>
 Customisable : some worlds are already integrated (collision sphere, search and rescue...).  
 Some features are already included : Landing, take-off, send goal.  
 Launch file as examples for the Gazebo simulation are already implemented.
+> Even though it does not launches DJI Assistant, the drone should still be plugged in. 
    
 ### Sensors emulated :
 Camera, odometry, altitude, inertia unit IMU, joint state. Navigate with GPS and more. The advantage of havn=ing Gazebo is that a wide range of sensors is available.
