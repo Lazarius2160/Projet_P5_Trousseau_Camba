@@ -2,16 +2,18 @@
 
 ## Introduction :
 The last group project tried out this solution which worked well (Ardupilot + SITL). However they did not used Gazebo nor ROS, hence I am going to follow the tutorial they have used for Ardupilot and SITL, then add those for Gazebo and ROS.  
+Indeed, the Gazebo part uses a pure Gazebo plugin so there is no need of ROS however it is [still possible to use ROS with normal gazebo-ros packages](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html#plugin-installation).  
 <br>
-Why adding ROS? Topic usage, plugins... And actions as real time graph analysis, SLAM, filters, camera etc  
-Why adding Gazebo? 3D, indoor flying, obstacle avoidance ...
+Hence, why adding :
+- ROS? Advantage of being low level with topic usage, plugins... And actions such as real time graph analysis, SLAM, filters, camera etc  
+- Gazebo? For its usefulness : 3D, indoor flying, obstacle avoidance ...
 <br>
 
 **But beware, for the moment is not possible to have [SITL + ROS + Gazebo](https://ardupilot.org/dev/docs/ros-gazebo.html) but only SITL + ROS or  SITL + Gazebo with SITL used with a Gazebo plugin. [Here](https://diydrones.com/profiles/blogs/705844-BlogPost-2151758) is a discussion and a shematic of the attempt made to use them 3 together on ROS Indigo :**  
+<br>
 ![ROS+Gazebo+SITL](https://user-images.githubusercontent.com/76939787/109482113-e49e1c80-7a7d-11eb-8096-f7ee1d250e97.png)  
 <br>
-Indeed, the Gazebo part uses a pure Gazebo plugin so there is no need of ROS however it is [still possible to use ROS with normal gazebo-ros packages](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html#plugin-installation).
-<br>
+
 
 ### Architecture :
 The architecture is the following : 
@@ -20,23 +22,21 @@ The architecture is the following :
 - MAVProxy, a UAV ground station software package for MAVLink based systems, talks to ArduPilot using the MAVLink protocol,
 - If using : 
   - ROS : use MAVROS, a ROS “node” that can convert between ROS topics and MAVLink messages allowing ArduPilot vehicles to communicate with ROS,
-  - Gazebo : a Gazebo Plugin.  
+  - Gazebo : with a Gazebo Plugin.  
 
 
 Here is a schema of the controller and SITL (Flight Gear is optionnal and works for planes, hence I did not use it), one will use sim_vehicule.py to launch everything in short : 
 <br>
 ![ArdupilotSoftwareintheLoopSITL](https://user-images.githubusercontent.com/76939787/109513125-1080c880-7aa5-11eb-8512-ee62ae74b854.jpeg)  
-<br>
 
 
 
 ### General configuration :
-- ROS melodic
+- ROS Melodic
 - Ubuntu 16.04 at least  
 
 
 ## Ardupilot and SITL : 
-
 
 ### Installation :
 1. To get Ardupilot, SITL and Arducopter I followed **[this first tutorial](https://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux).**\
@@ -45,7 +45,7 @@ It also installs [gitk](https://git-scm.com/docs/gitk/) a repository browser, an
 > To update the submodule I had to do a `git config --global url."https://".insteadOf git://` first.
 
 
-2. It also let us updates [MavProxy](https://ardupilot.org/mavproxy/index.html#home), which a "UAV ground station software package for MAVLink based systems". First I installed it using [this website](https://ardupilot.org/mavproxy/docs/getting_started/download_and_installation.html#linux) and to get everything up to date.
+2. First I installed it using **[this tutorial](https://ardupilot.org/mavproxy/docs/getting_started/download_and_installation.html#linux)** and to get everything up to date. It also let us update [MavProxy](https://ardupilot.org/mavproxy/index.html#home), which a "UAV ground station software package for MAVLink based systems". 
 > MAVProxy allows to give commands to the UAV in the simulation. For example, to arm the engines, disarm them, give the UAV a mission and more generally manage the UAV and the simulation.
 
 3. The next tutorial I followed was **[Setting up SITL on Linux](https://ardupilot.org/dev/docs/setting-up-sitl-on-linux.html#setting-up-sitl-on-linux)** it was made to configure and launch SITL.
@@ -89,7 +89,7 @@ I used the guided mode and *armed the motors* which is very important otherwise 
 When the first part worked fine I tried to add Gazebo to my simulation. 
 
 ### Installation :
-To use Gazebo as an external simulator. I used this **[third tutorial](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html)** which went smoothly and I was able to take off.  
+To use Gazebo as an external simulator. I used this [tutorial](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html) which went smoothly and I was able to take off.  
 
 ### Testing : 
 Now that I could test with Gazebo I had to :
@@ -105,6 +105,7 @@ When I thought I was done with Gazebo I went back to the part without Gazebo and
 
 ### Installation :
 I started by initializing a proper catkin workspace [like so](http://wiki.ros.org/catkin/Tutorials/create_a_workspace) and then followed [this tutorial](https://ardupilot.org/dev/docs/ros-install.html#installing-mavros) to get a proper MAVRos (mandatory to use ROS).  
+
 > I had to do an `apt-get update` prior to everything and use `sudo` to install the install_geographiclib_datasets.sh  
 Then follow [this tutorial ROS with SITL](https://ardupilot.org/dev/docs/ros-sitl.html) and it was done!  
 
