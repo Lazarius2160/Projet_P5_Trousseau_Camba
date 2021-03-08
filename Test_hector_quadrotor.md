@@ -21,34 +21,29 @@ a SLAM tool.
 1. To get hector_quadrator packages that work on melodic, I used this tutorial **[hector tutorial](https://github.com/basavarajnavalgund/hector-quadrotor).**
 
 Considering that you already have created your ROS workspace, clone the following packages in the "src" folder :
-> git clone -b kinetic-devel https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor
 
-> git clone -b catkin https://github.com/tu-darmstadt-ros-pkg/hector_localization
-
-> git clone -b kinetic-devel https://github.com/tu-darmstadt-ros-pkg/hector_gazebo
-
-> git clone -b kinetic-devel https://github.com/tu-darmstadt-ros-pkg/hector_models
-
-> git clone -b catkin https://github.com/tu-darmstadt-ros-pkg/hector_slam
+    git clone -b kinetic-devel https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor
+    git clone -b catkin https://github.com/tu-darmstadt-ros-pkg/hector_localization
+    git clone -b kinetic-devel https://github.com/tu-darmstadt-ros-pkg/hector_gazebo
+    git clone -b kinetic-devel https://github.com/tu-darmstadt-ros-pkg/hector_models
+    git clone -b catkin https://github.com/tu-darmstadt-ros-pkg/hector_slam
 
 2. These are others packages that are required, in particular in order to use a controller : 
-> sudo apt-get install ros-melodic-geographic-info
 
-> sudo apt-get install ros-melodic-ros-control
-
-> sudo apt-get install ros-melodic-gazebo-ros-control
-
-> sudo apt-get install ros-melodic-joy
-
-> sudo apt-get install ros-melodic-teleop-twist-keyboard
+       sudo apt-get install ros-melodic-geographic-info
+       sudo apt-get install ros-melodic-ros-control
+       sudo apt-get install ros-melodic-gazebo-ros-control
+       sudo apt-get install ros-melodic-joy
+       sudo apt-get install ros-melodic-teleop-twist-keyboard
 
 
 3. Then go back to your workspace to compile. As I used TheConstruct, I compiled with :  
-> catkin_make
+
+`catkin_make`
 
 And source the workspace :
 
-> source devel/setup.bash 
+`source devel/setup.bash`
 
 ### ROS architecture :
 
@@ -64,16 +59,15 @@ The control would be done through a script (the Simulation blue block) that woul
 ### Testing : 
 
 1. To start the demo with an already defined map and the slam functionalities use : 
-> roslaunch hector_quadrotor_demo indoor_slam_gazebo.launch
-
-or
-> roslaunch hector_quadrotor_demo outdoor_flight_gazebo.launch
+`roslaunch hector_quadrotor_demo indoor_slam_gazebo.launch`  
+or  
+`roslaunch hector_quadrotor_demo outdoor_flight_gazebo.launch`
 
 2. Before beeing able to control the drone you need to enable the motors :
-> rosservice call /enable_motors "enable: true"
+`rosservice call /enable_motors "enable: true"`
 
 3. You can start to control the drone with your keyboard using :
-> rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+`rosrun teleop_twist_keyboard teleop_twist_keyboard.py`
 
 Here is the rqt graph after having started the demo : 
 ![rosgraph_hector_quadrotor](https://user-images.githubusercontent.com/47387835/109857762-ef5dda80-7c52-11eb-8ede-f93b0a7233c5.png)
@@ -83,7 +77,7 @@ Following by the tf_tree :
 ### Conclusion : 
 
  The packages are really easy to install and the simulation went very well.
- We have already access to a lot a features such as : camera, sonar, laserscan. 
+ We have already access to a lot a features such as : camera, sonar, laserscan.  
  We can control the drone with teleop or a joystick.
  
  In order to simulate physical environmment you can publish within the /wind topic.
