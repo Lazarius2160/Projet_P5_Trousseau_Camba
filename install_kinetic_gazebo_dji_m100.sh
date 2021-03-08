@@ -1,5 +1,4 @@
-#attention au format voir si en .rosinstall ou en .sh???
-#ici en .sh
+#This file downloads every package useful to connect Gazebo and RViz to the DJI drones.
 
 #!/bin/bash
 
