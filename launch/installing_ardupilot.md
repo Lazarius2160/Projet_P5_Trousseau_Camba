@@ -1,4 +1,8 @@
 ## Setting up the environnement:
+This installing tutorial is a resume of what I did in the *Test_ardupilot.md* so it concatenate 3 tutorials in one. It is separated in 3, the first part is mandatory and the 2 and 3 can be done separatly or not done at all.  
+For more explanations go to my [Test_ardupilot.md](https://github.com/Lazarius2160/Projet_P5_Trousseau_Camba/blob/c012ee46ff7e42417c4a2f1eb568f7f3feef7bba/Test_ardupilot.md) or see the original tutorials linked below.
+
+
 ### Ardupilot + SITL :
 First I followed [this tuto](https://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux).  
 Open a shell on your terminal and write :
@@ -19,13 +23,14 @@ To make this path permanent one must log out and in of its session. And clean ou
 
     ./waf clean
 
-Then I installed MavProxy using [tuto 3](https://ardupilot.org/mavproxy/docs/getting_started/download_and_installation.html#linux) :
+Then I installed MavProxy using [this tuto](https://ardupilot.org/mavproxy/docs/getting_started/download_and_installation.html#linux) :
 
     sudo apt-get install python3-dev python3-opencv python3-wxgtk4.0 python3-pip python3-matplotlib python3-lxml python3-pygame
     pip3 install PyYAML mavproxy --user
     echo "export PATH=$PATH:$HOME/.local/bin" >> ~/.bashrc
 
 Then restart the system.  
+<br>
 In case MavProxy is not up to date I used :
 
     pip install --upgrade pymavlink MAVProxy --user
@@ -41,7 +46,7 @@ Once you have installed your gazebo version go to your working directory and typ
     make -j4
     sudo make install
     
-See [here](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html).
+See the whole tuto [here](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html).
 
 ### Adding ROS :
 Install MavROS :
@@ -65,7 +70,7 @@ Then set up a proper catkin workspace :
     
  Change the first line to : `<arg name="fcu_url" default="udp://127.0.0.1:14551@14555" />`.  
  
- See [here](https://ardupilot.org/dev/docs/ros-install.html#installing-mavros).
+ See the whole tuto [here](https://ardupilot.org/dev/docs/ros-install.html#installing-mavros).
 
 ## Testing the world:
 ### Start SITL simulator :  
@@ -102,7 +107,7 @@ Shell 3:
     rqt the GUI interface for using ROS easily.
 
 
-
+The result of those testing are written in my [Test_ardupilot.md](https://github.com/Lazarius2160/Projet_P5_Trousseau_Camba/blob/c012ee46ff7e42417c4a2f1eb568f7f3feef7bba/Test_ardupilot.md).
 
 
 
