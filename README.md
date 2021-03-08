@@ -9,5 +9,5 @@ In this branch you'll see the two solutions we choose working on ROS Melodic :
 These two solutions were intrinsically different as their architecture is different : **_one is a ROS metapackage which navigates thanks to ROS nodes and the other a flight controller which flies thanks to the MAVLink protocol._**
 
 You will find explanations, tutorial and testing on "Test_ardupilot.md" and "Test_hector_quadrotor.md".  
-In the launcg=h file, a .launch file for the silulation for hector and a .md for the commands to install Arduoilot and everything needed for this solution.
+In the launch file, a .launch file for the simulation for hector and a .md for the commands to install Ardupilot and everything needed for this solution.
 
