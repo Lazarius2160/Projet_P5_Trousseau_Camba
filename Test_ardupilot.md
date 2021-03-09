@@ -86,13 +86,13 @@ I used the guided mode and *armed the motors* which is very important otherwise 
 
 
 ## Using Gazebo as an external simulator :
-When the first part worked fine I tried to add Gazebo to my simulation. 
+Once the first part worked fine, I tried to add Gazebo to my simulation. 
 
 ### Installation :
 To use Gazebo as an external simulator. I used this [tutorial](https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html) which went smoothly and I was able to take off.  
 
 ### Testing : 
-Now that I could test with Gazebo I had to :
+Now that I could test it with Gazebo I had to :
   - To launch it change the sim_vehicule in the first shell (ctrl+C and type this command) `sim_vehicle.py -f gazebo-iris --console --map`, open another shell and type `cd` then `gazebo --verbose worlds/iris_arducopter_runway.world`.
   - I select the drone on Gazebo and clicked on *follow* to better see where it was going.
   - Then I repeated the same steps except for the wind part (different way to do this), in Gazebo the RTL made it return to the last landing position.
@@ -124,7 +124,7 @@ Thanks to the GUI I could try different things when the drone was flying:
 
 ## To go further : 
 As said before having ROS+Gazebo+SITL is not possible for now (only on ROS indigo at best) so I wasn't able to test it. Trying it would close a loop and make an even powerful tool.  
-Still, if one wants to do a control simulation there is no need of a ROS Gazebo connexion (as I did), however for exmplant to get a camera topic in ROS from Gazebo, you have to add gazebo-ros camera plugin connected to gazebo camera in the iris model file as described [here](https://github.com/SwiftGust/ardupilot_gazebo/issues/19).
+Still, if one wants to do a control simulation there is no need of a ROS Gazebo connexion (as I did), however for example to get a camera topic in ROS from Gazebo, you have to add gazebo-ros camera plugin connected to gazebo camera in the iris model file as described [here](https://github.com/SwiftGust/ardupilot_gazebo/issues/19).
 <br>
 
 Some people use [ROS and Hector SLAM to do non GPS Navigation](https://ardupilot.org/dev/docs/ros-slam.html), using a lidar simulated on Gazebo instead of lidar harware is possible and explained [here](https://discuss.ardupilot.org/t/arducopter-sitl-gazebo-ros-slam-simultaneous-localisation-and-mapping/63022/1).
