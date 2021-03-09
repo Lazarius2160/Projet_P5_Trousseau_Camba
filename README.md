@@ -3,11 +3,11 @@
 ## Introduction
 
 
-The goal of this 4-weeks project is to make a state of the art of the simulator avaible on the drone market now and try out some solutions. 
+The goal of this 4-week project is to make a state of the art of the simulator available on the drone market and try out some solutions. 
 
 
-For this project, the *Software In the Loop* method must be priviledge as it "characterizes a numerical simulation of the operation of the software of an embedded system during which the entire environment, including the hardware part of the embedded system, is simulated." from [wikidictionnary](https://fr.wiktionary.org/wiki/software-in-the-loop).
-The focus will be on simulators ROS friendly. Mostly using Melodic, as well as Kinetic if needed.  
+For this project, the *Software In the Loop* method must be priviledged as it "characterizes a numerical simulation of the operation of the software of an embedded system during which the entire environment, including the hardware part of the embedded system, is simulated." from [wikidictionnary](https://fr.wiktionary.org/wiki/software-in-the-loop).
+The focus will be on ROS friendly simulators. Mostly using Melodic, as well as Kinetic if needed.  
 
 
 The previous project found solutions using ROS, Gazebo and : 
@@ -83,9 +83,9 @@ Links | [Official github](https://github.com/PX4/PX4-Autopilot) | [Wiki](https:/
 
  
 Notes :
-1. "We will be using a standard version of ArduPilot but a custom plugin for Gazebo, until the gazebo plugin gets merged into Gazebo-master. This plugin can be used with or without ROS integration." 
+1. "We will be using a standard version of ArduPilot but with a custom plugin for Gazebo, until the gazebo plugin gets merged into Gazebo-master. This plugin can be used with or without ROS integration." 
 2. "MAVROS is a ROS “node” that can convert between ROS topics and MAVLink messages allowing ArduPilot vehicles to communicate with ROS."
-3. About SITL : SITL allows you to run ArduPilot on your PC directly, without any special hardware. It takes advantage of the fact that ArduPilot is a portable autopilot that can run on a very wide variety of platforms. When running in SITL the sensor data comes from a flight dynamics model in a flight simulator. Is only in 2D but has many sensors : GPS, wind, barometer, avoidance, fence, vibrations...
+3. About SITL : SITL allows you to run ArduPilot on your PC directly, without any special hardware. It takes advantage of the fact that ArduPilot is a portable autopilot that can run on a very wide variety of platforms. When running in SITL the sensor data come from a flight dynamics model in a flight simulator. Is only in 2D but has many sensors : GPS, wind, barometer, avoidance, fence, vibrations...
 
 
 ### More projects : 
@@ -119,9 +119,9 @@ We tried out 3 solutions, working very differently from one to another :
 - Ardupilot flight controller paired with Gazebo or ROS.  
 <br>
 
-Hector had the advantage of being very user friendly : everthing comes with the package, no need to install many softwares and is is low level so pretty easy to modify.  
+Hector had the advantage of being very user friendly : everthing comes with the package, no need to install many softwares and it is low level so pretty easy to modify.  
 DJI was very complete and accurate but would only work using the DJI hardware.  
-Ardupilot was the most complete but a bit hard to understand its architecture with ROS or Gazebo.
+Ardupilot was the most complete but it was a bit hard to understand its architecture with ROS or Gazebo.
 <br>
 
 Yet, from what we tried, we would recommend **PX4 with ROS and Gazebo** for your project regarding our work and the previous one. In fact, it is the same architecture as Ardupilot but with ROS dependencies "built in" (PX4 and ROS are working together to give us this solution). Even though the documentation, examples and community is bigger for Ardupilot, we think that PX4 open source documentation would me enough.  
