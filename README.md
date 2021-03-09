@@ -24,8 +24,8 @@ For the hardware part :
 ### General informations :
 The Onboard Software Development Kit is for those who want to develop only softwares and rapidly prototype, it simulates the sensors on the robot which flies on an empty world.  
 Indeed a simulator is integrated to the assistant or it is possible to connect the assistant with Gazebo for more functionnalities (see below).  
-No need to have the company onboard computer, instead one can use a thrid party computer as explained [here](https://developer.dji.com/onboard-sdk/documentation/purchaseguide/hardware.html#onboard-computer).  
-Is uses a native RQT GUI, may be used with Rviz (see below on the next section).  
+No need to have the company onboard computer, instead one can use a third party computer as explained [here](https://developer.dji.com/onboard-sdk/documentation/purchaseguide/hardware.html#onboard-computer).  
+It uses a native RQT GUI, and may be used with Rviz (see below on the next section).  
 > However, having a ready-made SDK also restricts the developer from many aspects, mostly by the assumptions made by product owner while configuring it.
    
 ### Drones which can be used :
@@ -64,11 +64,11 @@ It can work in collision free mode, be piloted (joystick or keyboard) or given a
 <br>
 Customisable : some worlds are already integrated (collision sphere, search and rescue...).  
 Some features are already included : Landing, take-off, send goal.  
-Launch file as examples for the Gazebo simulation are already implemented.
+Launch file, as examples for the Gazebo simulation, are already implemented.
 > Even though it does not launches DJI Assistant, the drone should still be plugged in. 
    
 ### Sensors emulated :
-Camera, odometry, altitude, inertia unit IMU, joint state. Navigate with GPS and more. The advantage of havn=ing Gazebo is that a wide range of sensors is available.
+Camera, odometry, altitude, inertia unit IMU, joint state. Navigate with GPS and more. The advantage of having Gazebo is that a wide range of sensors is available.
 
 ### How it works :
 Simulate the drone in Gazebo and visualize informations through Rviz.  
@@ -92,7 +92,7 @@ And move it with : w - Forward, a - Left, s - Reverse, d - Right, z - Climb up, 
       `roslaunch dji_m100_gazebo simulate.launch`
       
 ### Testing :
-To test if the hector quadrotor works fine using Gazebo and DJI assistant, try `roslaunch hector_quadrotor_demo outdoor_flight_gazebo.launch`, somertimes, it needs to have the motor enable manually `rosservice call /enable_motors "enable: true` .  
+To test if the hector quadrotor works fine using Gazebo and DJI assistant, try `roslaunch hector_quadrotor_demo outdoor_flight_gazebo.launch`, sometimes it needs to have the motor enable manually `rosservice call /enable_motors "enable: true` .  
 > The drone needs to be plugged in !
 
 ## To conclude :
